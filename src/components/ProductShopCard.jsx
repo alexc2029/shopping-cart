@@ -7,6 +7,7 @@ export default function ProductShopCard({ title, price, image }) {
 			<input type="number" />
 			<button>+</button>
 			<button>-</button>
+			<button>Add To Cart</button>
 		</div>
 	);
 }

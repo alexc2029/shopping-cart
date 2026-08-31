@@ -23,3 +23,7 @@ DATA
     app level "items in cart" state
         number of cart items calculated from that array's length
     
+
+TESTING
+    mock custom fetch hook
+    do not test react router itself (such as the urls) but rather check if the page contents are what I expect

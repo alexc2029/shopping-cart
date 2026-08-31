@@ -18,3 +18,8 @@ PERSISTENT NAVBAR TO NAVIGATE BETWEEN THEM
     shop page
     cart
         indicator for number of items in cart (probably state very high up in the app)
+
+DATA
+    app level "items in cart" state
+        number of cart items calculated from that array's length
+    

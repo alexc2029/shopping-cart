@@ -1,4 +1,4 @@
-export default function Product({ title, price, image }) {
+export default function ProductShopCard({ title, price, image }) {
 	return (
 		<div>
 			<img src={image} alt="" />

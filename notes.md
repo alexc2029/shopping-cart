@@ -1,0 +1,20 @@
+HOME PAGE - a few dummy information/images
+
+SHOP PAGE
+    product card component
+        title
+        add to cart button
+        input for quantity
+        increment/decrement button for fine tuning
+
+
+CART PAGE - items + quantities, increase/decrease item quantity including removal
+    product component needed here as well (could explore reusability from shop page)
+
+
+
+PERSISTENT NAVBAR TO NAVIGATE BETWEEN THEM
+    home page
+    shop page
+    cart
+        indicator for number of items in cart (probably state very high up in the app)

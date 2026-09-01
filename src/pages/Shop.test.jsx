@@ -2,7 +2,6 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 
 import Shop from "./Shop";
-import useProducts from "../hooks/useProducts";
 
 describe("Shop tests", () => {
 	it("should render in a loading state", () => {

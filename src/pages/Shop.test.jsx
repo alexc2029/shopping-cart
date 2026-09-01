@@ -6,7 +6,7 @@ import Shop from "./Shop";
 describe("Shop tests", () => {
 	it("should render in a loading state", () => {
 		render(<Shop />);
-		const loadingElement = screen.queryByText("Loading...");
+		const loadingElement = screen.getByText("Loading...");
 		expect(loadingElement).toBeInTheDocument();
 	});
 	it("shows loaded products", async () => {

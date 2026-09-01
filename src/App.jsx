@@ -5,11 +5,15 @@ import { useState } from "react";
 
 function App() {
 	const [productsInCart, setProductsInCart] = useState([]);
+	const addProductToCart = (product) => {
+		setProductsInCart([...productsInCart, product]);
+	};
+	console.log(productsInCart);
 	return (
 		<>
 			<Navbar />
 			<main>
-				<Outlet context={{ productsInCart, setProductsInCart }} />
+				<Outlet context={{ productsInCart, addProductToCart }} />
 			</main>
 		</>
 	);

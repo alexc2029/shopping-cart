@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export default function ProductShopCard({ title, price, imageUrl }) {
+export default function ProductShopCard({
+	title,
+	price,
+	imageUrl,
+	onAddToCart,
+}) {
 	const [count, setCount] = useState(1);
 	const countAsNumber = Number(count);
 	return (
@@ -21,7 +26,7 @@ export default function ProductShopCard({ title, price, imageUrl }) {
 			>
 				-
 			</button>
-			<button>Add To Cart</button>
+			<button onClick={onAddToCart}>Add To Cart</button>
 		</div>
 	);
 }

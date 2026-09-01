@@ -13,7 +13,9 @@ export default function Shop() {
 			price={product.price}
 			imageUrl={product.image}
 			key={product.id}
-			onAddToCart={() => addProductToCart(product)}
+			onAddToCart={(count) =>
+				addProductToCart({ ...product, count: count })
+			}
 		/>
 	));
 }

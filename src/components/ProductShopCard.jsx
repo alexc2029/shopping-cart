@@ -26,7 +26,7 @@ export default function ProductShopCard({
 			>
 				-
 			</button>
-			<button onClick={onAddToCart}>Add To Cart</button>
+			<button onClick={() => onAddToCart(count)}>Add To Cart</button>
 		</div>
 	);
 }

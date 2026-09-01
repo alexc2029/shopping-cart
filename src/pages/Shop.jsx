@@ -9,7 +9,7 @@ export default function Shop() {
 		<ProductShopCard
 			title={product.title}
 			price={product.price}
-			image={product.image}
+			imageUrl={product.image}
 			key={product.id}
 		/>
 	));

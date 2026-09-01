@@ -10,7 +10,17 @@ function App() {
 		0,
 	);
 	const addProductToCart = (product) => {
-		setProductsInCart([...productsInCart, product]);
+		if (!productsInCart.some((p) => p.id === product.id))
+			setProductsInCart([...productsInCart, product]);
+		else {
+			setProductsInCart(
+				productsInCart.map((p) => {
+					if (p.id === product.id)
+						return { ...p, count: p.count + product.count };
+					else return p;
+				}),
+			);
+		}
 	};
 	console.log(productsInCart);
 	return (

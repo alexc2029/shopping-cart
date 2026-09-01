@@ -28,4 +28,16 @@ describe("Shop tests", () => {
 		const loadingElement = screen.queryByText("Loading...");
 		expect(loadingElement).not.toBeInTheDocument();
 	});
+	it("displays error", async () => {
+		global.fetch = vi.fn().mockResolvedValue({
+			ok: false,
+			status: 402,
+		});
+
+		render(<Shop />);
+
+		expect(
+			await screen.findByText("Failed to load products."),
+		).toBeInTheDocument();
+	});
 });

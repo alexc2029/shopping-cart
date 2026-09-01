@@ -5,7 +5,10 @@ import { useState } from "react";
 
 function App() {
 	const [productsInCart, setProductsInCart] = useState([]);
-	const productsInCartCount = productsInCart.length;
+	const productsInCartCount = productsInCart.reduce(
+		(total, product) => total + product.count,
+		0,
+	);
 	const addProductToCart = (product) => {
 		setProductsInCart([...productsInCart, product]);
 	};

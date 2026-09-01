@@ -7,7 +7,6 @@ export default function Shop() {
 	const { addProductToCart } = useOutletContext();
 	if (loading) return <p>Loading...</p>;
 	else if (error) return <p>Failed to load products.</p>;
-	///beware of how to handle re-adding a product that's already in cart
 	return products.map((product) => (
 		<ProductShopCard
 			title={product.title}

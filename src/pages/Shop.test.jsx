@@ -21,7 +21,6 @@ describe("Shop tests", () => {
 		render(<Shop />);
 
 		expect(await screen.findByText("Backpack")).toBeInTheDocument();
-		///is it fine that this is actually testing a child component?
 		expect(await screen.findByText("Shirt")).toBeInTheDocument();
 
 		const loadingElement = screen.queryByText("Loading...");

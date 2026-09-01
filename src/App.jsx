@@ -5,13 +5,14 @@ import { useState } from "react";
 
 function App() {
 	const [productsInCart, setProductsInCart] = useState([]);
+	const productsInCartCount = productsInCart.length;
 	const addProductToCart = (product) => {
 		setProductsInCart([...productsInCart, product]);
 	};
 	console.log(productsInCart);
 	return (
 		<>
-			<Navbar />
+			<Navbar productsInCartCount={productsInCartCount} />
 			<main>
 				<Outlet context={{ productsInCart, addProductToCart }} />
 			</main>

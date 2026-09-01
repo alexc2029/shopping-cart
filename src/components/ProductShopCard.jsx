@@ -1,7 +1,7 @@
 export default function ProductShopCard({ title, price, imageUrl }) {
 	return (
 		<div>
-			<img src={imageUrl} alt="" />
+			<img src={imageUrl} alt="" data-testid="product-image" />
 			<h2>{title}</h2>
 			<span>${price}</span>
 			<input type="number" />

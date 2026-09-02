@@ -1,10 +1,10 @@
 import { useOutletContext } from "react-router";
-import ProductCartCard from "../components/cart/ProductCartCard";
+import CartProduct from "../components/cart/CartProduct";
 
 export default function Cart() {
 	const { productsInCart } = useOutletContext();
 	return productsInCart.map((product) => (
-		<ProductCartCard
+		<CartProduct
 			title={product.title}
 			price={product.price}
 			imageUrl={product.image}

@@ -1,4 +1,4 @@
-import ProductShopCard from "../components/shop/ProductShopCard";
+import ShopProduct from "../components/shop/ShopProduct";
 import useProducts from "../hooks/useProducts";
 import { useOutletContext } from "react-router";
 
@@ -8,7 +8,7 @@ export default function Shop() {
 	if (loading) return <p>Loading...</p>;
 	else if (error) return <p>Failed to load products.</p>;
 	return products.map((product) => (
-		<ProductShopCard
+		<ShopProduct
 			title={product.title}
 			price={product.price}
 			imageUrl={product.image}

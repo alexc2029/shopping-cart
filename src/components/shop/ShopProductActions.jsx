@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProductShopCardActions({ onAddToCart }) {
+export default function ShopProductActions({ onAddToCart }) {
 	const [count, setCount] = useState(1);
 	const countAsNumber = Number(count);
 	return (

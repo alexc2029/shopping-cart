@@ -1,4 +1,4 @@
-export default function ProductShopCardInfo({ title, imageUrl, price }) {
+export default function ShopProductInfo({ title, imageUrl, price }) {
 	return (
 		<div>
 			<img src={imageUrl} alt="" data-testid="product-image" />

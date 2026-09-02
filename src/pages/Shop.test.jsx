@@ -1,11 +1,12 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-
-import Shop from "./Shop";
+import routes from "../routes";
+import { createMemoryRouter, RouterProvider } from "react-router";
 
 describe("Shop tests", () => {
+	const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
 	it("should render in a loading state", () => {
-		render(<Shop />);
+		render(<RouterProvider router={router} />);
 		const loadingElement = screen.getByText("Loading...");
 		expect(loadingElement).toBeInTheDocument();
 	});
@@ -18,7 +19,7 @@ describe("Shop tests", () => {
 			],
 		});
 
-		render(<Shop />);
+		render(<RouterProvider router={router} />);
 
 		expect(await screen.findByText("Backpack")).toBeInTheDocument();
 		expect(await screen.findByText("Shirt")).toBeInTheDocument();
@@ -32,7 +33,7 @@ describe("Shop tests", () => {
 			status: 402,
 		});
 
-		render(<Shop />);
+		render(<RouterProvider router={router} />);
 
 		expect(
 			await screen.findByText("Failed to load products."),

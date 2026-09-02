@@ -1,4 +1,4 @@
-import ProductShopCard from "../components/ProductShopCard";
+import ProductShopCard from "../components/shop/ProductShopCard";
 import useProducts from "../hooks/useProducts";
 import { useOutletContext } from "react-router";
 

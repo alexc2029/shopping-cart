@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router";
-import ProductCartCard from "../components/ProductCartCard";
+import ProductCartCard from "../components/cart/ProductCartCard";
 
 export default function Cart() {
 	const { productsInCart } = useOutletContext();

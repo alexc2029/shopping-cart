@@ -2,12 +2,16 @@ import { useOutletContext } from "react-router";
 import CartProduct from "../components/cart/CartProduct";
 
 export default function Cart() {
-	const { productsInCart } = useOutletContext();
+	const { productsInCart, updateProductCountFromCart } = useOutletContext();
 	return productsInCart.map((product) => (
 		<CartProduct
 			title={product.title}
 			price={product.price}
 			imageUrl={product.image}
+			count={product.count}
+			onUpdateCount={(clickedCount) =>
+				updateProductCountFromCart(product.id, clickedCount)
+			}
 			key={product.id}
 		/>
 	));

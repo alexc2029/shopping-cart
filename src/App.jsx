@@ -21,12 +21,21 @@ function App() {
 			);
 		}
 	};
+	const updateProductCountFromCart = (productId, count) => {
+		updateProductCount(setProductsInCart, productsInCart, productId, count);
+	};
 	console.log(productsInCart);
 	return (
 		<>
 			<Navbar productsInCartCount={productsInCartCount} />
 			<main>
-				<Outlet context={{ productsInCart, addProductToCart }} />
+				<Outlet
+					context={{
+						productsInCart,
+						addProductToCart,
+						updateProductCountFromCart,
+					}}
+				/>
 			</main>
 		</>
 	);

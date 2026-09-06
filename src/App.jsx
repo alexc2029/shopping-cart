@@ -24,6 +24,9 @@ function App() {
 	const updateProductCountFromCart = (productId, count) => {
 		updateProductCount(setProductsInCart, productsInCart, productId, count);
 	};
+	const removeProductFromCart = (productId) => {
+		setProductsInCart(productsInCart.filter((p) => p.id !== productId));
+	};
 	console.log(productsInCart);
 	return (
 		<>
@@ -34,6 +37,7 @@ function App() {
 						productsInCart,
 						addProductToCart,
 						updateProductCountFromCart,
+						removeProductFromCart,
 					}}
 				/>
 			</main>

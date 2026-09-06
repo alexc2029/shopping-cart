@@ -7,11 +7,13 @@ export default function CartProduct({
 	imageUrl,
 	count,
 	onUpdateCount,
+	onDeleteFromCart,
 }) {
 	return (
 		<div>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
+			<button onClick={onDeleteFromCart}>Remove from cart</button>
 		</div>
 	);
 }

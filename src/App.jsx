@@ -13,7 +13,12 @@ function App() {
 		if (!isProductInCart(productsInCart, product))
 			setProductsInCart([...productsInCart, product]);
 		else {
-			updateProductCount(setProductsInCart, productsInCart, product);
+			updateProductCount(
+				setProductsInCart,
+				productsInCart,
+				product.id,
+				product.count,
+			);
 		}
 	};
 	console.log(productsInCart);
@@ -29,11 +34,15 @@ function App() {
 
 export default App;
 
-function updateProductCount(setProductsInCart, productsInCart, product) {
+function updateProductCount(
+	setProductsInCart,
+	productsInCart,
+	productId,
+	count,
+) {
 	setProductsInCart(
 		productsInCart.map((p) => {
-			if (p.id === product.id)
-				return { ...p, count: p.count + product.count };
+			if (p.id === productId) return { ...p, count: p.count + count };
 			else return p;
 		}),
 	);

@@ -3,10 +3,14 @@ import { render, screen } from "@testing-library/react";
 import routes from "../routes";
 import { createMemoryRouter, RouterProvider } from "react-router";
 
-describe("Shop tests", () => {
+function renderShop() {
 	const router = createMemoryRouter(routes, { initialEntries: ["/shop"] });
+	render(<RouterProvider router={router} />);
+}
+
+describe("Shop tests", () => {
 	it("should render in a loading state", () => {
-		render(<RouterProvider router={router} />);
+		renderShop();
 		const loadingElement = screen.getByText("Loading...");
 		expect(loadingElement).toBeInTheDocument();
 	});
@@ -19,7 +23,7 @@ describe("Shop tests", () => {
 			],
 		});
 
-		render(<RouterProvider router={router} />);
+		renderShop();
 
 		expect(await screen.findByText("Backpack")).toBeInTheDocument();
 		expect(await screen.findByText("Shirt")).toBeInTheDocument();
@@ -33,7 +37,7 @@ describe("Shop tests", () => {
 			status: 402,
 		});
 
-		render(<RouterProvider router={router} />);
+		renderShop();
 
 		expect(
 			await screen.findByText("Failed to load products."),

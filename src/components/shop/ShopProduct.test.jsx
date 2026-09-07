@@ -1,16 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import ProductShopCard from "./ShopProduct";
+import ShopProduct from "./ShopProduct";
 
-describe("ProductShopCard tests", () => {
-	it("renders product", () => {
+describe("ShopProduct tests", () => {
+	it("renders product info", () => {
 		const mockProps = {
 			title: "Backpack",
 			price: "19",
 			imageUrl: "http://example.com",
 		};
 		render(
-			<ProductShopCard
+			<ShopProduct
 				title={mockProps.title}
 				price={mockProps.price}
 				imageUrl={mockProps.imageUrl}

@@ -24,4 +24,11 @@ describe("ShopProduct tests", () => {
 			mockProps.imageUrl,
 		);
 	});
+	it("renders quantity controls", () => {
+		render(<ShopProduct onAddToCart={() => {}} />);
+
+		expect(screen.getByRole("button", { name: "+" })).toBeInTheDocument();
+		expect(screen.getByRole("button", { name: "-" })).toBeInTheDocument();
+		expect(screen.getByRole("spinbutton")).toHaveDisplayValue(1);
+	});
 });

@@ -37,4 +37,20 @@ describe("Navbar tests", () => {
 			"/cart",
 		);
 	});
+	it("doesn't show product count badge for empty cart", () => {
+		render(
+			<MemoryRouter>
+				<Navbar productsInCartCount={0} />
+			</MemoryRouter>,
+		);
+		expect(screen.queryByTestId("cart-badge")).not.toBeInTheDocument();
+	});
+	it("shows product count badge when there are products in cart", () => {
+		render(
+			<MemoryRouter>
+				<Navbar productsInCartCount={3} />
+			</MemoryRouter>,
+		);
+		expect(screen.getByTestId("cart-badge")).toHaveTextContent("3");
+	});
 });

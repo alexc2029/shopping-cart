@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import ShopProduct from "./ShopProduct";
 import userEvent from "@testing-library/user-event";
 
@@ -46,5 +46,23 @@ describe("ShopProduct tests", () => {
 		await user.click(minusButton);
 
 		expect(quantityInput).toHaveDisplayValue(1);
+	});
+	it("renders add to cart button", () => {
+		render(<ShopProduct onAddToCart={() => {}} />);
+
+		expect(
+			screen.getByRole("button", { name: "Add To Cart" }),
+		).toBeInTheDocument();
+	});
+	it("calls functionality on add to cart click", async () => {
+		const stubAddToCart = vi.fn();
+		render(<ShopProduct onAddToCart={stubAddToCart} />);
+		const user = userEvent.setup();
+		const addToCartButton = screen.getByRole("button", {
+			name: "Add To Cart",
+		});
+
+		await user.click(addToCartButton);
+		expect(stubAddToCart).toHaveBeenCalled();
 	});
 });

@@ -65,4 +65,5 @@ describe("ShopProduct tests", () => {
 		await user.click(addToCartButton);
 		expect(stubAddToCart).toHaveBeenCalled();
 	});
+	///todo: should I test the manual input editing? it's controlled but it's still just an input
 });

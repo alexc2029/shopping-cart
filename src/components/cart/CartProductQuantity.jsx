@@ -9,7 +9,7 @@ export default function CartProductQuantity({ count, onUpdateCount }) {
 			>
 				-
 			</button>
-			<div>{count}</div>
+			<div data-testid="quantity-display">{count}</div>
 			<button
 				onClick={() => {
 					onUpdateCount(1);

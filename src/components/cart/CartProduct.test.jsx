@@ -25,4 +25,9 @@ describe("CartProduct tests", () => {
 			mockProps.imageUrl,
 		);
 	});
+	it("displays product quantity", () => {
+		render(<CartProduct count="3" />);
+
+		expect(screen.getByTestId("quantity-display")).toHaveTextContent(3);
+	});
 });

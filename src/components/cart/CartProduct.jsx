@@ -13,7 +13,9 @@ export default function CartProduct({
 		<div>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
-			<button onClick={onDeleteFromCart}>Remove from cart</button>
+			<button onClick={onDeleteFromCart} aria-label="Remove from cart">
+				Remove from cart
+			</button>
 		</div>
 	);
 }

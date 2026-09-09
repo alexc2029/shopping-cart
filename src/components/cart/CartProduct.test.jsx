@@ -55,4 +55,16 @@ describe("CartProduct tests", () => {
 
 		expect(quantityDisplay).toHaveTextContent(1);
 	});
+	it("calls functionality on delete from cart click", async () => {
+		const onDeleteFromCart = vi.fn();
+		render(<CartProduct onDeleteFromCart={onDeleteFromCart} />);
+		const user = userEvent.setup();
+		const removeFromCartButton = screen.getByRole("button", {
+			name: "Remove from cart",
+		});
+
+		await user.click(removeFromCartButton);
+
+		expect(onDeleteFromCart).toHaveBeenCalled();
+	});
 });

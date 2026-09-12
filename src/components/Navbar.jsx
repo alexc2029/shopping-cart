@@ -31,10 +31,16 @@ const StyledNameLink = styled(Link)`
 	font-size: 30px;
 `;
 
+const Ampersand = styled.span`
+	font-family: Georgia, Helvetica, sans-serif;
+`;
+
 export default function Navbar({ productsInCartCount }) {
 	return (
 		<StyledNav>
-			<StyledNameLink to="/">Lorem & Ipsum Co.</StyledNameLink>
+			<StyledNameLink to="/">
+				Lorem <Ampersand>&</Ampersand> Ipsum Co.
+			</StyledNameLink>
 			<NavLinksWrapper>
 				<StyledNavLink to="/">Home</StyledNavLink>
 				<StyledNavLink to="/shop">

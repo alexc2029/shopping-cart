@@ -2,6 +2,13 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { Outlet } from "react-router";
 import { useState } from "react";
+import styled from "styled-components";
+
+const AppLayout = styled.div`
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+`;
 
 function App() {
 	const [productsInCart, setProductsInCart] = useState([]);
@@ -29,7 +36,7 @@ function App() {
 	};
 	console.log(productsInCart);
 	return (
-		<>
+		<AppLayout>
 			<Navbar productsInCartCount={productsInCartCount} />
 			<main>
 				<Outlet
@@ -41,7 +48,7 @@ function App() {
 					}}
 				/>
 			</main>
-		</>
+		</AppLayout>
 	);
 }
 

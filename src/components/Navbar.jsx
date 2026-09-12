@@ -4,6 +4,7 @@ import styled from "styled-components";
 const StyledNav = styled.nav`
 	display: flex;
 	justify-content: space-between;
+	border-bottom: 1px solid var(--color-border);
 `;
 
 const NavLinksWrapper = styled.div`
@@ -26,6 +27,7 @@ const StyledNavLink = styled(NavLink)`
 const StyledNameLink = styled(Link)`
 	text-decoration: none;
 	color: var(--color-text);
+	font-size: 30px;
 `;
 
 export default function Navbar({ productsInCartCount }) {

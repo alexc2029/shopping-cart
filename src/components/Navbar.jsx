@@ -11,13 +11,30 @@ const NavLinksWrapper = styled.div`
 	gap: 1rem;
 `;
 
+const StyledNavLink = styled(NavLink)`
+	text-decoration: none;
+	color: var(--color-muted);
+	&:hover,
+	&:active {
+		color: var(--color-text);
+	}
+	&.active {
+		color: var(--color-accent);
+	}
+`;
+
+const StyledNameLink = styled(Link)`
+	text-decoration: none;
+	color: var(--color-text);
+`;
+
 export default function Navbar({ productsInCartCount }) {
 	return (
 		<StyledNav>
-			<Link to="/">Lorem & Ipsum Co.</Link>
+			<StyledNameLink to="/">Lorem & Ipsum Co.</StyledNameLink>
 			<NavLinksWrapper>
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/shop">
+				<StyledNavLink to="/">Home</StyledNavLink>
+				<StyledNavLink to="/shop">
 					{productsInCartCount > 0 && (
 						<span
 							aria-label={`${productsInCartCount} products in cart`}
@@ -27,8 +44,8 @@ export default function Navbar({ productsInCartCount }) {
 						</span>
 					)}
 					Shop
-				</NavLink>
-				<NavLink to="/cart">Cart</NavLink>
+				</StyledNavLink>
+				<StyledNavLink to="/cart">Cart</StyledNavLink>
 			</NavLinksWrapper>
 		</StyledNav>
 	);

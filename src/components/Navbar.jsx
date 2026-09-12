@@ -27,6 +27,7 @@ const StyledNavLink = styled(NavLink)`
 const StyledNameLink = styled(Link)`
 	text-decoration: none;
 	color: var(--color-text);
+	font-family: "PlayfairDisplay", Helvetica, sans-serif;
 	font-size: 30px;
 `;
 

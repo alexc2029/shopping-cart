@@ -11,6 +11,7 @@ const AppLayout = styled.div`
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	padding: 2rem 7rem;
+	font-family: "Inter", Helvetica, sans-serif;
 `;
 
 function App() {

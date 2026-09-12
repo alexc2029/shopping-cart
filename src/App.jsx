@@ -10,6 +10,7 @@ const AppLayout = styled.div`
 	min-height: 100vh;
 	background-color: var(--color-bg);
 	color: var(--color-text);
+	padding: 2rem 7rem;
 `;
 
 function App() {

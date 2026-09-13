@@ -5,7 +5,7 @@ const StyledNav = styled.nav`
 	display: flex;
 	gap: 1rem;
 	border-bottom: 1px solid var(--color-border);
-	align-items: center;
+	align-items: baseline;
 `;
 
 const StyledNavLink = styled(NavLink)`

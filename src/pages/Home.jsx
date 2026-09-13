@@ -15,7 +15,7 @@ const StyledHeading2 = styled.h2`
 	font-weight: normal;
 `;
 
-const StyledLink = styled(Link)`
+const CallToAction = styled(Link)`
 	text-decoration: none;
 	background-color: var(--color-accent);
 	color: white;
@@ -41,7 +41,7 @@ export default function Home() {
 				An exquisite collection of products that will never arrive,
 				charge your card, or take up closet space.
 			</StyledHeading2>
-			<StyledLink to="/shop">Browse the Catalog</StyledLink>
+			<CallToAction to="/shop">Browse the Catalog</CallToAction>
 		</HomeLayout>
 	);
 }

@@ -3,13 +3,11 @@ import styled from "styled-components";
 
 const StyledShopActions = styled.div`
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	gap: 5px;
 	margin-top: 10px;
 `;
-
-const StyledShopCount = styled.div``;
 
 const CountInput = styled.input`
 	width: 2rem;
@@ -26,27 +24,36 @@ const CountInput = styled.input`
 	}
 `;
 
+const AddToCartButton = styled.button`
+	background-color: var(--color-accent);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	padding: 6px 12px;
+`;
+
 export default function ShopProductActions({ onAddToCart }) {
 	const [count, setCount] = useState(1);
 	const countAsNumber = Number(count);
 	return (
 		<StyledShopActions>
-			<StyledShopCount>
-				<button
-					onClick={() => {
-						if (countAsNumber > 1) setCount(countAsNumber - 1);
-					}}
-				>
-					-
-				</button>
-				<CountInput
-					type="number"
-					value={count}
-					onChange={(e) => setCount(e.target.value)}
-				/>
-				<button onClick={() => setCount(countAsNumber + 1)}>+</button>
-			</StyledShopCount>
-			<button onClick={() => onAddToCart(count)}>Add To Cart</button>
+			<button
+				onClick={() => {
+					if (countAsNumber > 1) setCount(countAsNumber - 1);
+				}}
+			>
+				-
+			</button>
+			<CountInput
+				type="number"
+				value={count}
+				onChange={(e) => setCount(e.target.value)}
+			/>
+			<button onClick={() => setCount(countAsNumber + 1)}>+</button>
+
+			<AddToCartButton onClick={() => onAddToCart(count)}>
+				Add To Cart
+			</AddToCartButton>
 		</StyledShopActions>
 	);
 }

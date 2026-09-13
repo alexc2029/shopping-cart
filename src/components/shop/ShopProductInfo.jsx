@@ -11,12 +11,21 @@ const StyledProductInfo = styled.div`
 	}
 `;
 
+const ProductTitle = styled.h2`
+	font-weight: 500;
+	letter-spacing: 0.5px;
+`;
+
+const Price = styled.span`
+	color: var(--color-muted);
+`;
+
 export default function ShopProductInfo({ title, imageUrl, price }) {
 	return (
 		<StyledProductInfo>
 			<img src={imageUrl} alt="" data-testid="product-image" />
-			<h2>{title}</h2>
-			<span>${price}</span>
+			<ProductTitle>{title}</ProductTitle>
+			<Price>${price}</Price>
 		</StyledProductInfo>
 	);
 }

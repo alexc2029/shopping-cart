@@ -7,6 +7,7 @@ const ShopLayout = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 3vw;
+	margin-top: 3rem;
 `;
 
 export default function Shop() {

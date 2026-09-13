@@ -39,7 +39,8 @@ export default function Navbar({ productsInCartCount }) {
 				Lorem <Ampersand>&</Ampersand> Ipsum Co.
 			</StyledNameLink>
 			<StyledNavLink to="/">Home</StyledNavLink>
-			<StyledNavLink to="/shop">
+			<StyledNavLink to="/shop">Shop</StyledNavLink>
+			<StyledNavLink to="/cart">
 				{productsInCartCount > 0 && (
 					<span
 						aria-label={`${productsInCartCount} products in cart`}
@@ -48,9 +49,8 @@ export default function Navbar({ productsInCartCount }) {
 						{productsInCartCount}
 					</span>
 				)}
-				Shop
+				Cart
 			</StyledNavLink>
-			<StyledNavLink to="/cart">Cart</StyledNavLink>
 		</StyledNav>
 	);
 }

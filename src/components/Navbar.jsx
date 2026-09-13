@@ -3,13 +3,9 @@ import styled from "styled-components";
 
 const StyledNav = styled.nav`
 	display: flex;
-	justify-content: space-between;
-	border-bottom: 1px solid var(--color-border);
-`;
-
-const NavLinksWrapper = styled.div`
-	display: flex;
 	gap: 1rem;
+	border-bottom: 1px solid var(--color-border);
+	align-items: center;
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -29,6 +25,7 @@ const StyledNameLink = styled(Link)`
 	color: var(--color-text);
 	font-family: "PlayfairDisplay", Helvetica, sans-serif;
 	font-size: 30px;
+	margin-right: auto;
 `;
 
 const Ampersand = styled.span`
@@ -41,21 +38,19 @@ export default function Navbar({ productsInCartCount }) {
 			<StyledNameLink to="/">
 				Lorem <Ampersand>&</Ampersand> Ipsum Co.
 			</StyledNameLink>
-			<NavLinksWrapper>
-				<StyledNavLink to="/">Home</StyledNavLink>
-				<StyledNavLink to="/shop">
-					{productsInCartCount > 0 && (
-						<span
-							aria-label={`${productsInCartCount} products in cart`}
-							data-testid="cart-badge"
-						>
-							{productsInCartCount}
-						</span>
-					)}
-					Shop
-				</StyledNavLink>
-				<StyledNavLink to="/cart">Cart</StyledNavLink>
-			</NavLinksWrapper>
+			<StyledNavLink to="/">Home</StyledNavLink>
+			<StyledNavLink to="/shop">
+				{productsInCartCount > 0 && (
+					<span
+						aria-label={`${productsInCartCount} products in cart`}
+						data-testid="cart-badge"
+					>
+						{productsInCartCount}
+					</span>
+				)}
+				Shop
+			</StyledNavLink>
+			<StyledNavLink to="/cart">Cart</StyledNavLink>
 		</StyledNav>
 	);
 }

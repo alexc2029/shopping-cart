@@ -5,6 +5,7 @@ import CartProductQuantity from "./CartProductQuantity";
 const CartProductLayout = styled.div`
 	display: flex;
 	align-items: center;
+	gap: 30px;
 `;
 
 export default function CartProduct({

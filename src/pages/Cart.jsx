@@ -1,5 +1,13 @@
 import { useOutletContext } from "react-router";
 import CartProduct from "../components/cart/CartProduct";
+import styled from "styled-components";
+
+const CartLayout = styled.div`
+	max-width: 800px;
+	margin-inline: auto;
+`;
+
+const ProductsList = styled.div``;
 
 export default function Cart() {
 	const {
@@ -7,19 +15,25 @@ export default function Cart() {
 		updateProductCountFromCart,
 		removeProductFromCart,
 	} = useOutletContext();
-	return productsInCart.map((product) => (
-		<CartProduct
-			title={product.title}
-			price={product.price}
-			imageUrl={product.image}
-			count={product.count}
-			onUpdateCount={(clickedCount) =>
-				updateProductCountFromCart(product.id, clickedCount)
-			}
-			onDeleteFromCart={() => {
-				removeProductFromCart(product.id);
-			}}
-			key={product.id}
-		/>
-	));
+	return (
+		<CartLayout>
+			<ProductsList>
+				{productsInCart.map((product) => (
+					<CartProduct
+						title={product.title}
+						price={product.price}
+						imageUrl={product.image}
+						count={product.count}
+						onUpdateCount={(clickedCount) =>
+							updateProductCountFromCart(product.id, clickedCount)
+						}
+						onDeleteFromCart={() => {
+							removeProductFromCart(product.id);
+						}}
+						key={product.id}
+					/>
+				))}
+			</ProductsList>
+		</CartLayout>
+	);
 }

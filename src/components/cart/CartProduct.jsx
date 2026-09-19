@@ -9,6 +9,21 @@ const CartProductLayout = styled.div`
 	gap: 30px;
 `;
 
+const XButton = styled.button`
+	border: none;
+	background-color: transparent;
+	color: var(--color-muted);
+	cursor: pointer;
+	&:hover {
+		color: var(--color-text);
+	}
+`;
+
+const PriceAndXWrapper = styled.div`
+	display: flex;
+	align-items: center;
+`;
+
 export default function CartProduct({
 	title,
 	price,
@@ -21,15 +36,15 @@ export default function CartProduct({
 		<CartProductLayout>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
-			<div>
+			<PriceAndXWrapper>
 				<span>${price * count}</span>
-				<button
+				<XButton
 					onClick={onDeleteFromCart}
 					aria-label="Remove from cart"
 				>
 					<X />
-				</button>
-			</div>
+				</XButton>
+			</PriceAndXWrapper>
 		</CartProductLayout>
 	);
 }

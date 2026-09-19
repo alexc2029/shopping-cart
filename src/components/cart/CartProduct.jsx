@@ -1,5 +1,11 @@
+import styled from "styled-components";
 import CardProductInfo from "./CartProductInfo";
 import CartProductQuantity from "./CartProductQuantity";
+
+const CartProductLayout = styled.div`
+	display: flex;
+	align-items: center;
+`;
 
 export default function CartProduct({
 	title,
@@ -10,12 +16,12 @@ export default function CartProduct({
 	onDeleteFromCart,
 }) {
 	return (
-		<div>
+		<CartProductLayout>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
 			<button onClick={onDeleteFromCart} aria-label="Remove from cart">
 				Remove from cart
 			</button>
-		</div>
+		</CartProductLayout>
 	);
 }

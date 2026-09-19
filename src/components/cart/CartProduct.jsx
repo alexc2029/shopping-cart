@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CardProductInfo from "./CartProductInfo";
 import CartProductQuantity from "./CartProductQuantity";
+import { X } from "lucide-react";
 
 const CartProductLayout = styled.div`
 	display: flex;
@@ -20,9 +21,15 @@ export default function CartProduct({
 		<CartProductLayout>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
-			<button onClick={onDeleteFromCart} aria-label="Remove from cart">
-				Remove from cart
-			</button>
+			<div>
+				<span>${price * count}</span>
+				<button
+					onClick={onDeleteFromCart}
+					aria-label="Remove from cart"
+				>
+					<X />
+				</button>
+			</div>
 		</CartProductLayout>
 	);
 }

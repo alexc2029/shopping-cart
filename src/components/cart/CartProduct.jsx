@@ -3,12 +3,6 @@ import CardProductInfo from "./CartProductInfo";
 import CartProductQuantity from "./CartProductQuantity";
 import { X } from "lucide-react";
 
-const CartProductLayout = styled.div`
-	display: flex;
-	align-items: center;
-	gap: 30px;
-`;
-
 const XButton = styled.button`
 	border: none;
 	background-color: transparent;
@@ -22,6 +16,9 @@ const XButton = styled.button`
 const PriceAndXWrapper = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
+	justify-self: end;
+	gap: 10px;
 `;
 
 export default function CartProduct({
@@ -33,7 +30,7 @@ export default function CartProduct({
 	onDeleteFromCart,
 }) {
 	return (
-		<CartProductLayout>
+		<>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
 			<PriceAndXWrapper>
@@ -45,6 +42,6 @@ export default function CartProduct({
 					<X />
 				</XButton>
 			</PriceAndXWrapper>
-		</CartProductLayout>
+		</>
 	);
 }

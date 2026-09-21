@@ -7,7 +7,14 @@ const CartLayout = styled.div`
 	margin-inline: auto;
 `;
 
-const ProductsList = styled.div``;
+const ProductsList = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, max-content);
+	align-items: center;
+	justify-items: center;
+	justify-content: start;
+	gap: 30px;
+`;
 
 export default function Cart() {
 	const {

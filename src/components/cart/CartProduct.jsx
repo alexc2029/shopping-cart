@@ -21,6 +21,20 @@ const PriceAndXWrapper = styled.div`
 	gap: 10px;
 `;
 
+const CartRow = styled.div`
+	display: grid;
+	grid-column: 1/-1;
+	grid-template-columns: subgrid;
+	align-items: center;
+
+	border-bottom: 1px solid var(--color-border);
+	padding-bottom: 1.5rem;
+
+	&:last-child {
+		border-bottom: none;
+	}
+`;
+
 export default function CartProduct({
 	title,
 	price,
@@ -30,7 +44,7 @@ export default function CartProduct({
 	onDeleteFromCart,
 }) {
 	return (
-		<>
+		<CartRow>
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
 			<PriceAndXWrapper>
@@ -42,6 +56,6 @@ export default function CartProduct({
 					<X />
 				</XButton>
 			</PriceAndXWrapper>
-		</>
+		</CartRow>
 	);
 }

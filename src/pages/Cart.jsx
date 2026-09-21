@@ -13,7 +13,7 @@ const ProductsList = styled.div`
 	align-items: center;
 	justify-items: center;
 	justify-content: start;
-	gap: 30px;
+	gap: 1.5rem;
 `;
 
 export default function Cart() {

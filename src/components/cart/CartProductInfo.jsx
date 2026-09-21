@@ -25,7 +25,7 @@ export default function CardProductInfo({ title, imageUrl, price }) {
 			<img src={imageUrl} alt="" data-testid="product-image" />
 			<TitleAndPrice>
 				<Title>{title}</Title>
-				<span>${price}</span>
+				<span>${price.toFixed(2)}</span>
 			</TitleAndPrice>
 		</StyledProductInfo>
 	);

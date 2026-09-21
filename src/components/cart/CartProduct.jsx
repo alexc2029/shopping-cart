@@ -37,7 +37,7 @@ export default function CartProduct({
 			<CardProductInfo title={title} imageUrl={imageUrl} price={price} />
 			<CartProductQuantity count={count} onUpdateCount={onUpdateCount} />
 			<PriceAndXWrapper>
-				<span>${price * count}</span>
+				<span>${(price * count).toFixed(2)}</span>
 				<XButton
 					onClick={onDeleteFromCart}
 					aria-label="Remove from cart"

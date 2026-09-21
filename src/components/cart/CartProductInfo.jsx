@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledProductInfo = styled.div`
 	display: flex;
+	gap: 30px;
 	& img {
 		height: 80px;
 		width: 80px;
@@ -11,6 +12,7 @@ const StyledProductInfo = styled.div`
 const TitleAndPrice = styled.div`
 	display: flex;
 	flex-direction: column;
+	width: 250px;
 `;
 
 const Title = styled.h2`

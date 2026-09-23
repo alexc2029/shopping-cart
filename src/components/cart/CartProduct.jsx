@@ -31,7 +31,7 @@ const CartRow = styled.div`
 	padding-bottom: 1.5rem;
 
 	&:last-child {
-		border-bottom: none;
+		border-bottom: 2px solid var(--color-muted);
 	}
 `;
 

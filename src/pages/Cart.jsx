@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router";
 import CartProduct from "../components/cart/CartProduct";
 import styled from "styled-components";
 import CallToAction from "../components/CallToAction.styles";
+import { Link } from "react-router";
 
 const CartLayout = styled.div`
 	width: fit-content;
@@ -63,33 +64,66 @@ export default function Cart() {
 		.toFixed(2);
 	return (
 		<CartLayout>
-			<Heading>Selection</Heading>
-			<ProductsList>
-				{productsInCart.map((product) => (
-					<CartProduct
-						title={product.title}
-						price={product.price}
-						imageUrl={product.image}
-						count={product.count}
-						onUpdateCount={(clickedCount) =>
-							updateProductCountFromCart(product.id, clickedCount)
-						}
-						onDeleteFromCart={() => {
-							removeProductFromCart(product.id);
+			{productsInCart.length ? (
+				<>
+					<Heading>Selection</Heading>
+					<ProductsList>
+						{productsInCart.map((product) => (
+							<CartProduct
+								title={product.title}
+								price={product.price}
+								imageUrl={product.image}
+								count={product.count}
+								onUpdateCount={(clickedCount) =>
+									updateProductCountFromCart(
+										product.id,
+										clickedCount,
+									)
+								}
+								onDeleteFromCart={() => {
+									removeProductFromCart(product.id);
+								}}
+								key={product.id}
+							/>
+						))}
+					</ProductsList>
+					<TotalWrapper>
+						<TotalLabel>Grand Total</TotalLabel>
+						<TotalAmount>${totalPrice}</TotalAmount>
+					</TotalWrapper>
+					<ConfirmOrder>Confirm Order</ConfirmOrder>
+					<Disclaimer>
+						Orders do not ship. Client-side state will reset upon
+						tab closure.
+					</Disclaimer>
+				</>
+			) : (
+				<>
+					<Heading
+						style={{ fontSize: "2.5rem", marginBottom: "1rem" }}
+					>
+						Selection Empty
+					</Heading>
+					<Disclaimer
+						style={{ fontSize: "1.25rem", marginBottom: "1rem" }}
+					>
+						You have resisted the impulse to acquire imaginary
+						objects.
+					</Disclaimer>
+					<CallToAction
+						as={Link}
+						to="/shop"
+						style={{
+							display: "block",
+							marginInline: "auto",
+							width: "fit-content",
+							paddingInline: "28px",
 						}}
-						key={product.id}
-					/>
-				))}
-			</ProductsList>
-			<TotalWrapper>
-				<TotalLabel>Grand Total</TotalLabel>
-				<TotalAmount>${totalPrice}</TotalAmount>
-			</TotalWrapper>
-			<ConfirmOrder>Confirm Order</ConfirmOrder>
-			<Disclaimer>
-				Orders do not ship. Client-side state will reset upon tab
-				closure.
-			</Disclaimer>
+					>
+						Reconsider Your Restraint
+					</CallToAction>
+				</>
+			)}
 		</CartLayout>
 	);
 }

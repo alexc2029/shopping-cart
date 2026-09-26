@@ -8,6 +8,7 @@ const StyledProductInfo = styled.div`
 	& img {
 		max-width: 100%;
 		height: 30vh;
+		transition: transform 0.3s ease;
 	}
 `;
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ShopProduct from "../components/shop/ShopProduct";
 import useProducts from "../hooks/useProducts";
 import { useOutletContext } from "react-router";
+import Heading from "../components/Heading.styles";
 
 const ShopLayout = styled.div`
 	display: grid;
@@ -16,18 +17,21 @@ export default function Shop() {
 	if (loading) return <p>Loading...</p>;
 	else if (error) return <p>Failed to load products.</p>;
 	return (
-		<ShopLayout>
-			{products.map((product) => (
-				<ShopProduct
-					title={product.title}
-					price={product.price}
-					imageUrl={product.image}
-					key={product.id}
-					onAddToCart={(count) =>
-						addProductToCart({ ...product, count: count })
-					}
-				/>
-			))}
-		</ShopLayout>
+		<>
+			<Heading style={{ marginBottom: "0" }}>Catalog</Heading>
+			<ShopLayout>
+				{products.map((product) => (
+					<ShopProduct
+						title={product.title}
+						price={product.price}
+						imageUrl={product.image}
+						key={product.id}
+						onAddToCart={(count) =>
+							addProductToCart({ ...product, count: count })
+						}
+					/>
+				))}
+			</ShopLayout>
+		</>
 	);
 }

@@ -20,7 +20,7 @@ const Heading = styled.h1`
 	font-size: 3rem;
 	font-family: "PlayfairDisplay", Helvetica, sans-serif;
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom: 2rem;
 `;
 
 const TotalWrapper = styled.div`
@@ -46,6 +46,10 @@ export default function Cart() {
 		updateProductCountFromCart,
 		removeProductFromCart,
 	} = useOutletContext();
+	const totalPrice = productsInCart.reduce(
+		(acc, product) => acc + product.price * product.count,
+		0,
+	);
 	return (
 		<CartLayout>
 			<Heading>Selection</Heading>
@@ -68,7 +72,7 @@ export default function Cart() {
 			</ProductsList>
 			<TotalWrapper>
 				<TotalLabel>Grand Total</TotalLabel>
-				<TotalAmount>$244.43</TotalAmount>
+				<TotalAmount>${totalPrice}</TotalAmount>
 			</TotalWrapper>
 		</CartLayout>
 	);

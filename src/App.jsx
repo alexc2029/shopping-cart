@@ -11,7 +11,22 @@ const AppLayout = styled.div`
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	padding: 2rem 7rem;
+	padding-bottom: 0;
 	font-family: "Inter", Helvetica, sans-serif;
+`;
+
+const Content = styled.main`
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid var(--color-border);
+	padding-bottom: 2rem;
+`;
+
+const StyledFooter = styled.footer`
+	flex-shrink: 0;
+	text-align: center;
+	padding: 0.5rem 0;
 `;
 
 function App() {
@@ -43,7 +58,7 @@ function App() {
 	return (
 		<AppLayout>
 			<Navbar productsInCartCount={productsInCartCount} />
-			<main>
+			<Content>
 				<Outlet
 					context={{
 						productsInCart,
@@ -53,7 +68,10 @@ function App() {
 						emptyCart,
 					}}
 				/>
-			</main>
+			</Content>
+			<StyledFooter>
+				© 2026 Lorem & Ipsum Co. Built with React
+			</StyledFooter>
 		</AppLayout>
 	);
 }

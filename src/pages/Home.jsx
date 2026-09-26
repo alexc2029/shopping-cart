@@ -21,9 +21,10 @@ const CallToActionLink = styled(CallToAction)`
 `;
 
 const HomeLayout = styled.div`
-	margin-top: 5rem;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	gap: 20px;
 `;

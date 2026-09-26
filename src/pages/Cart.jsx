@@ -28,7 +28,7 @@ const TotalWrapper = styled.div`
 	justify-content: flex-end;
 	gap: 10px;
 	font-size: 1.5rem;
-	margin: 10px 0;
+	margin: 1.5rem 0;
 `;
 
 const TotalLabel = styled.span`
@@ -38,6 +38,28 @@ const TotalLabel = styled.span`
 
 const TotalAmount = styled.span`
 	font-weight: 500;
+`;
+
+const ConfirmOrder = styled.button`
+	background-color: var(--color-accent);
+	border-radius: 8px;
+	color: white;
+	border: none;
+	width: 100%;
+	padding: 12px 0;
+	margin-bottom: 1.25rem;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+
+	&:hover {
+		background-color: var(--color-hover);
+	}
+`;
+
+const Disclaimer = styled.p`
+	color: var(--color-muted);
+	font-style: italic;
+	text-align: center;
 `;
 
 export default function Cart() {
@@ -73,6 +95,11 @@ export default function Cart() {
 				<TotalLabel>Grand Total</TotalLabel>
 				<TotalAmount>${totalPrice}</TotalAmount>
 			</TotalWrapper>
+			<ConfirmOrder>Confirm Order</ConfirmOrder>
+			<Disclaimer>
+				Orders do not ship. Client-side state will reset upon tab
+				closure.
+			</Disclaimer>
 		</CartLayout>
 	);
 }

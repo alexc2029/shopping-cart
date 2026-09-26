@@ -41,16 +41,16 @@ export default function Navbar({ productsInCartCount }) {
 			<StyledNavLink to="/">Home</StyledNavLink>
 			<StyledNavLink to="/shop">Shop</StyledNavLink>
 			<StyledNavLink to="/cart">
-				Cart (
+				Cart
 				{productsInCartCount > 0 && (
 					<span
 						aria-label={`${productsInCartCount} products in cart`}
 						data-testid="cart-badge"
 					>
-						{productsInCartCount}
+						{" "}
+						({productsInCartCount})
 					</span>
 				)}
-				)
 			</StyledNavLink>
 		</StyledNav>
 	);

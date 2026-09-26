@@ -1,6 +1,7 @@
 import { useOutletContext } from "react-router";
 import CartProduct from "../components/cart/CartProduct";
 import styled from "styled-components";
+import CallToAction from "../components/CallToAction.styles";
 
 const CartLayout = styled.div`
 	width: fit-content;
@@ -40,20 +41,9 @@ const TotalAmount = styled.span`
 	font-weight: 500;
 `;
 
-const ConfirmOrder = styled.button`
-	background-color: var(--color-accent);
-	border-radius: 8px;
-	color: white;
-	border: none;
+const ConfirmOrder = styled(CallToAction)`
 	width: 100%;
-	padding: 12px 0;
 	margin-bottom: 1.25rem;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
-
-	&:hover {
-		background-color: var(--color-hover);
-	}
 `;
 
 const Disclaimer = styled.p`

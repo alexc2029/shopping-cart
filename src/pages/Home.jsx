@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import styled from "styled-components";
+import CallToAction from "../components/CallToAction.styles";
 
 const Ampersand = styled.span`
 	font-family: Georgia, Helvetica, sans-serif;
@@ -15,12 +16,8 @@ const StyledHeading2 = styled.h2`
 	font-weight: normal;
 `;
 
-const CallToAction = styled(Link)`
-	text-decoration: none;
-	background-color: var(--color-accent);
-	color: white;
-	border-radius: 8px;
-	padding: 12px 28px;
+const CallToActionLink = styled(CallToAction)`
+	padding-inline: 28px;
 `;
 
 const HomeLayout = styled.div`
@@ -41,7 +38,9 @@ export default function Home() {
 				An exquisite collection of products that will never arrive,
 				charge your card, or take up closet space.
 			</StyledHeading2>
-			<CallToAction to="/shop">Browse the Catalog</CallToAction>
+			<CallToActionLink as={Link} to="/shop">
+				Browse the Catalog
+			</CallToActionLink>
 		</HomeLayout>
 	);
 }

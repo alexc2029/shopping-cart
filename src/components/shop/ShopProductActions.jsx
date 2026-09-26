@@ -5,6 +5,7 @@ import {
 	CountButton,
 	CountInput,
 } from "../QuantityControls.styles";
+import CallToAction from "../CallToAction.styles";
 
 const StyledShopActions = styled.div`
 	display: flex;
@@ -14,11 +15,7 @@ const StyledShopActions = styled.div`
 	margin-top: 10px;
 `;
 
-const AddToCartButton = styled.button`
-	background-color: var(--color-accent);
-	color: white;
-	border: none;
-	border-radius: 8px;
+const AddToCartButton = styled(CallToAction)`
 	padding: 6px 12px;
 `;
 

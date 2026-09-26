@@ -12,8 +12,15 @@ const ProductsList = styled.div`
 	grid-template-columns: repeat(3, max-content);
 	align-items: center;
 	justify-items: center;
-	justify-content: start;
+	justify-content: center;
 	gap: 1.5rem;
+`;
+
+const Heading = styled.h1`
+	font-size: 3rem;
+	font-family: "PlayfairDisplay", Helvetica, sans-serif;
+	text-align: center;
+	margin-bottom: 30px;
 `;
 
 export default function Cart() {
@@ -24,6 +31,7 @@ export default function Cart() {
 	} = useOutletContext();
 	return (
 		<CartLayout>
+			<Heading>Selection</Heading>
 			<ProductsList>
 				{productsInCart.map((product) => (
 					<CartProduct

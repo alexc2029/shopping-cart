@@ -4,6 +4,7 @@ import CartProductQuantity from "./CartProductQuantity";
 import { X } from "lucide-react";
 
 const XButton = styled.button`
+	padding: 0;
 	border: none;
 	background-color: transparent;
 	color: var(--color-muted);

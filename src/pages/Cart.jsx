@@ -46,10 +46,9 @@ export default function Cart() {
 		updateProductCountFromCart,
 		removeProductFromCart,
 	} = useOutletContext();
-	const totalPrice = productsInCart.reduce(
-		(acc, product) => acc + product.price * product.count,
-		0,
-	);
+	const totalPrice = productsInCart
+		.reduce((acc, product) => acc + product.price * product.count, 0)
+		.toFixed(2);
 	return (
 		<CartLayout>
 			<Heading>Selection</Heading>

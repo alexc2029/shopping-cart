@@ -38,6 +38,7 @@ function App() {
 	const removeProductFromCart = (productId) => {
 		setProductsInCart(productsInCart.filter((p) => p.id !== productId));
 	};
+	const emptyCart = () => setProductsInCart([]);
 	console.log(productsInCart);
 	return (
 		<AppLayout>
@@ -49,6 +50,7 @@ function App() {
 						addProductToCart,
 						updateProductCountFromCart,
 						removeProductFromCart,
+						emptyCart,
 					}}
 				/>
 			</main>

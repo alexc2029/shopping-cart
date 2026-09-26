@@ -58,6 +58,7 @@ export default function Cart() {
 		productsInCart,
 		updateProductCountFromCart,
 		removeProductFromCart,
+		emptyCart,
 	} = useOutletContext();
 	const totalPrice = productsInCart
 		.reduce((acc, product) => acc + product.price * product.count, 0)
@@ -91,7 +92,9 @@ export default function Cart() {
 						<TotalLabel>Grand Total</TotalLabel>
 						<TotalAmount>${totalPrice}</TotalAmount>
 					</TotalWrapper>
-					<ConfirmOrder>Confirm Order</ConfirmOrder>
+					<ConfirmOrder onClick={emptyCart}>
+						Confirm Order
+					</ConfirmOrder>
 					<Disclaimer>
 						Orders do not ship. Client-side state will reset upon
 						tab closure.

@@ -8,7 +8,7 @@ describe("CartProduct tests", () => {
 	it("renders product info", () => {
 		const mockProps = {
 			title: "Backpack",
-			price: "19",
+			price: 19,
 			imageUrl: "http://example.com",
 		};
 		render(
@@ -20,7 +20,7 @@ describe("CartProduct tests", () => {
 		);
 
 		expect(screen.getByText(mockProps.title)).toBeInTheDocument();
-		expect(screen.getByText(`$${mockProps.price}`)).toBeInTheDocument();
+		expect(screen.getByText(`$${mockProps.price}.00`)).toBeInTheDocument();
 		expect(screen.getByTestId("product-image")).toHaveAttribute(
 			"src",
 			mockProps.imageUrl,

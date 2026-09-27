@@ -26,7 +26,7 @@ export default function ShopProductInfo({ title, imageUrl, price }) {
 		<StyledProductInfo>
 			<img src={imageUrl} alt="" data-testid="product-image" />
 			<ProductTitle>{title}</ProductTitle>
-			<Price>${price.toFixed(2)}</Price>
+			<Price>${Number(price ?? 0).toFixed(2)}</Price>
 		</StyledProductInfo>
 	);
 }

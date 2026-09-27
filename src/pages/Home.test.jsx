@@ -10,9 +10,8 @@ describe("Home page tests", () => {
 				<Home />
 			</MemoryRouter>,
 		);
-		expect(screen.getByRole("link", { name: "Shop Now" })).toHaveAttribute(
-			"href",
-			"/shop",
-		);
+		expect(
+			screen.getByRole("link", { name: "Browse the Catalog" }),
+		).toHaveAttribute("href", "/shop");
 	});
 });

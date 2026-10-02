@@ -47,6 +47,18 @@ describe("ShopProduct tests", () => {
 
 		expect(quantityInput).toHaveDisplayValue(1);
 	});
+	it("doesn't allow quantity to drop below 1", async () => {
+		render(<ShopProduct onAddToCart={() => {}} />);
+		const user = userEvent.setup();
+		const minusButton = screen.getByRole("button", { name: "-" });
+		const quantityInput = screen.getByRole("spinbutton");
+
+		expect(quantityInput).toHaveDisplayValue(1);
+
+		await user.click(minusButton);
+
+		expect(quantityInput).toHaveDisplayValue(1);
+	});
 	it("renders add to cart button", () => {
 		render(<ShopProduct onAddToCart={() => {}} />);
 

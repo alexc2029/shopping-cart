@@ -36,6 +36,7 @@ export default function ShopProductActions({ onAddToCart }) {
 					type="number"
 					value={count}
 					onChange={(e) => setCount(e.target.value)}
+					onWheel={(e) => e.currentTarget.blur()}
 				/>
 				<CountButton onClick={() => setCount(countAsNumber + 1)}>
 					+

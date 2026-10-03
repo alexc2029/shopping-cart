@@ -91,4 +91,12 @@ describe("Cart tests", () => {
 
 		expect(mockEmptyCart).toHaveBeenCalled();
 	});
+	it("renders products", () => {
+		renderCartWithContext({
+			productsInCart: mockProducts,
+		});
+
+		expect(screen.getByText("Backpack")).toBeInTheDocument();
+		expect(screen.getByText("Shoes")).toBeInTheDocument();
+	});
 });

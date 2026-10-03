@@ -3,7 +3,17 @@ import { describe, it, expect, vi } from "vitest";
 import { createMemoryRouter, RouterProvider, Outlet } from "react-router";
 import Cart from "./Cart";
 
-function renderCartWithContext(contextValue) {
+
+function renderCartWithContext(customContext = {}) {
+	const defaultContext = {
+		productsInCart: [],
+		updateProductCountFromCart: vi.fn(),
+		removeProductFromCart: vi.fn(),
+		emptyCart: vi.fn(),
+	};
+
+	const contextValue = { ...defaultContext, ...customContext };
+
 	const routes = [
 		{
 			element: <Outlet context={contextValue} />,
@@ -23,12 +33,7 @@ function renderCartWithContext(contextValue) {
 
 describe("Cart tests", () => {
 	it("renders empty cart state and provides link to browse products", () => {
-		renderCartWithContext({
-			productsInCart: [],
-			updateProductCountFromCart: vi.fn(),
-			removeProductFromCart: vi.fn(),
-			emptyCart: vi.fn(),
-		});
+		renderCartWithContext();
 
 		expect(
 			screen.getByRole("heading", { name: /empty/i }),

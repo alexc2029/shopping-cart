@@ -3,6 +3,20 @@ import { describe, it, expect, vi } from "vitest";
 import { createMemoryRouter, RouterProvider, Outlet } from "react-router";
 import Cart from "./Cart";
 
+const mockProducts = [
+	{
+		title: "Backpack",
+		price: 20.12,
+		imageUrl: "http://example.com",
+		count: 1,
+	},
+	{
+		title: "Shoes",
+		price: 40.2,
+		imageUrl: "http://example.com",
+		count: 2,
+	},
+];
 
 function renderCartWithContext(customContext = {}) {
 	const defaultContext = {

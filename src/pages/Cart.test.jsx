@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import { createMemoryRouter, RouterProvider, Outlet } from "react-router";
 import Cart from "./Cart";
+import userEvent from "@testing-library/user-event";
 
 const mockProducts = [
 	{
@@ -60,5 +61,34 @@ describe("Cart tests", () => {
 		expect(
 			screen.queryByRole("button", { name: /confirm order/i }),
 		).not.toBeInTheDocument();
+	});
+	it("renders heading without empty label when not empty", () => {
+		renderCartWithContext({
+			productsInCart: mockProducts,
+		});
+		expect(
+			screen.getByRole("heading", { name: "Selection" }),
+		).toBeInTheDocument();
+	});
+	it("renders confirm order button with callback", async () => {
+		const mockEmptyCart = vi.fn();
+		renderCartWithContext({
+			productsInCart: mockProducts,
+			emptyCart: mockEmptyCart,
+		});
+
+		const confirmOrderButton = screen.getByRole("button", {
+			name: /confirm order/i,
+		});
+
+		expect(
+			screen.queryByRole("heading", { name: /empty/i }),
+		).not.toBeInTheDocument();
+
+		const user = userEvent.setup();
+
+		await user.click(confirmOrderButton);
+
+		expect(mockEmptyCart).toHaveBeenCalled();
 	});
 });

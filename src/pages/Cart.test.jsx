@@ -99,4 +99,15 @@ describe("Cart tests", () => {
 		expect(screen.getByText("Backpack")).toBeInTheDocument();
 		expect(screen.getByText("Shoes")).toBeInTheDocument();
 	});
+	it("renders and correctly calculates grand total", () => {
+		renderCartWithContext({
+			productsInCart: mockProducts,
+		});
+		expect(screen.getByText("Grand Total")).toBeInTheDocument();
+		expect(
+			screen.getByText(
+				`$${(mockProducts[0].price * mockProducts[0].count + mockProducts[1].price * mockProducts[1].count).toFixed(2)}`,
+			),
+		).toBeInTheDocument();
+	});
 });

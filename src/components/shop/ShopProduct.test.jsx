@@ -66,7 +66,7 @@ describe("ShopProduct tests", () => {
 			screen.getByRole("button", { name: "Add To Cart" }),
 		).toBeInTheDocument();
 	});
-	it("calls functionality on add to cart click", async () => {
+	it("correctly calls functionality on add to cart click", async () => {
 		const stubAddToCart = vi.fn();
 		render(<ShopProduct onAddToCart={stubAddToCart} />);
 		const user = userEvent.setup();
@@ -75,7 +75,7 @@ describe("ShopProduct tests", () => {
 		});
 
 		await user.click(addToCartButton);
-		expect(stubAddToCart).toHaveBeenCalled();
+		expect(stubAddToCart).toHaveBeenCalledWith(1);
 	});
 	it("allows manual typing into the quantity input", async () => {
 		render(<ShopProduct onAddToCart={() => {}} />);

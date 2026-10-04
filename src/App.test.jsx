@@ -13,7 +13,7 @@ describe("App integration tests", () => {
 	afterEach(() => {
 		vi.restoreAllMocks();
 	});
-	test("Cart badge reacts correctly to adding to cart", async () => {
+	test("cart badge reacts correctly to adding to cart", async () => {
 		vi.spyOn(global, "fetch").mockResolvedValue({
 			ok: true,
 			json: async () => [{ id: 1, title: "Backpack" }],
@@ -32,5 +32,27 @@ describe("App integration tests", () => {
 		await user.click(addToCartButton);
 
 		expect(await screen.findByTestId("cart-badge")).toHaveTextContent("3");
+	});
+	test("adding the same item to cart twice updates the original entry", async () => {
+		vi.spyOn(global, "fetch").mockResolvedValue({
+			ok: true,
+			json: async () => [{ id: 1, title: "Backpack" }],
+		});
+		const user = userEvent.setup();
+
+		renderShop();
+		const addToCartButton = await screen.findByRole("button", {
+			name: "Add To Cart",
+		});
+
+		await user.click(addToCartButton);
+		await user.click(addToCartButton);
+		await user.click(await screen.findByRole("link", { name: /cart/i }));
+
+		const productTitles = await screen.findAllByText("Backpack");
+		expect(productTitles).toHaveLength(1);
+		expect(await screen.getByTestId("quantity-display")).toHaveTextContent(
+			2,
+		);
 	});
 });

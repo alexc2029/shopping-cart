@@ -1,4 +1,6 @@
-# Shopping Cart
+# Storefront
+
+[**Live Demo**](https://lorem-ipsum-storefront.netlify.app/)
 
 The main goal of this project was to practice React architecture, client-side routing, and testing with **Vitest** and **React Testing Library**. I also took the opportunity to try out **styled-components**, which gave me the chance to get a feel for how CSS-in-JS compares to more traditional CSS approaches.
 

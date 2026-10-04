@@ -77,5 +77,12 @@ describe("ShopProduct tests", () => {
 		await user.click(addToCartButton);
 		expect(stubAddToCart).toHaveBeenCalled();
 	});
-	///todo: should I test the manual input editing? it's controlled but it's still just an input
+	it("allows manual typing into the quantity input", async () => {
+		render(<ShopProduct onAddToCart={() => {}} />);
+		const user = userEvent.setup();
+		const quantityInput = screen.getByRole("spinbutton");
+
+		await user.type(quantityInput, "{backspace}13");
+		expect(quantityInput).toHaveValue(13);
+	});
 });

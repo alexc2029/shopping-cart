@@ -10,12 +10,14 @@ const mockProducts = [
 		price: 20.12,
 		imageUrl: "http://example.com",
 		count: 1,
+		id: 2,
 	},
 	{
 		title: "Shoes",
 		price: 40.2,
 		imageUrl: "http://example.com",
 		count: 2,
+		id: 50,
 	},
 ];
 

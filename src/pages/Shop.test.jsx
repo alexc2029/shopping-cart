@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import routes from "../routes";
 import { createMemoryRouter, RouterProvider } from "react-router";
@@ -9,13 +9,17 @@ function renderShop() {
 }
 
 describe("Shop tests", () => {
+	afterEach(() => {
+		vi.restoreAllMocks();
+	});
 	it("should render in a loading state", () => {
+		vi.spyOn(global, "fetch").mockReturnValue(new Promise(() => {}));
 		renderShop();
 		const loadingElement = screen.getByText("Loading...");
 		expect(loadingElement).toBeInTheDocument();
 	});
 	it("shows loaded products", async () => {
-		global.fetch = vi.fn().mockResolvedValue({
+		vi.spyOn(global, "fetch").mockResolvedValue({
 			ok: true,
 			json: async () => [
 				{ id: 1, title: "Backpack" },
@@ -32,7 +36,7 @@ describe("Shop tests", () => {
 		expect(loadingElement).not.toBeInTheDocument();
 	});
 	it("displays error", async () => {
-		global.fetch = vi.fn().mockResolvedValue({
+		vi.spyOn(global, "fetch").mockResolvedValue({
 			ok: false,
 			status: 402,
 		});
